@@ -27,6 +27,86 @@ Now let's get started.
 
 ## Coding time
 
+// ToDo 1: Implements signInWithGoogle()
+
 ```dart
-// Todo 1
+static Future<User> signInWithGoogle() async {
+  final googleSignInAccount = await _googleSignIn.signIn();
+
+  if (googleSignInAccount == null) {
+    return null;
+  }
+
+  final googleSignInAuthentication = await googleSignInAccount.authentication;
+
+  final AuthCredential credential = GoogleAuthProvider.credential(
+    accessToken: googleSignInAuthentication.accessToken,
+    idToken: googleSignInAuthentication.idToken,
+  );
+
+  final UserCredential result = await _auth.signInWithCredential(credential);
+
+  return result.user;
+}
+```
+
+// ToDo 2: Implements signOutGoogle()
+
+```dart
+static Future<void> signOutGoogle() async {
+  await _auth.signOut();
+  await _googleSignIn.signOut();
+}
+```
+
+// Todo 3: Implements sendMessage()
+
+```dart
+static Future<void> sendMessage(
+  TextEditingController messageTextController,
+) async {
+  if (messageTextController.text.trim().isNotEmpty) {
+    await _fireStore.collection("messages").add({
+      'message': messageTextController.text,
+      'sender': _auth.currentUser.email,
+      'created': Timestamp.now(),
+    });
+  }
+  messageTextController.clear();
+}
+```
+
+// Todo 4: Implements getQuerySnapshot()
+
+```dart
+static Stream<QuerySnapshot> getQuerySnapshot() {
+  return _fireStore.collection("messages").orderBy("created").snapshots();
+}
+```
+
+// Todo 5: Implements getMessageBubbles()
+
+```dart
+static List<MessageBubble> getMessageBubbles(
+  Iterable<DocumentSnapshot> messages,
+  String currentUser,
+) {
+  List<MessageBubble> messageBubbles = [];
+
+  for (var message in messages) {
+    var messageText = message.data()['message'];
+    var sender = message.data()['sender'];
+    var created = message.data()['created'];
+
+    var messageBubble = MessageBubble(
+      text: messageText,
+      sender: sender,
+      created: created,
+      isMe: currentUser == sender,
+    );
+    messageBubbles.add(messageBubble);
+  }
+
+  return messageBubbles;
+}
 ```
