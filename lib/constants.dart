@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+const kAnimatedTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontWeight: FontWeight.w900,
+);
+
 const kSendButtonTextStyle = TextStyle(
   color: Colors.lightBlueAccent,
   fontWeight: FontWeight.bold,
