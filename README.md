@@ -1,6 +1,6 @@
 # dsc_flutter_chat_app_template
 
-A DSC template Flutter application.
+<img src="https://i.pinimg.com/originals/64/3f/ae/643fae31d95b359db54cf936191cb01b.png" width="200">
 
 ## Getting Started
 
