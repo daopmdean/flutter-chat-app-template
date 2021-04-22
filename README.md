@@ -25,7 +25,13 @@ Now let's get started.
 
 ### Android
 
+- Setup in Firebase console
+- generate SHA1
+
 ### iOS
+
+- Setup in Firebase console
+- Edit Info.plist
 
 ## Coding time
 
