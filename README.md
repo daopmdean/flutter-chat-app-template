@@ -2,6 +2,8 @@
 
 <img src="https://i.pinimg.com/originals/64/3f/ae/643fae31d95b359db54cf936191cb01b.png" width="200">
 
+<img src="https://i.pinimg.com/originals/1a/9f/69/1a9f69af3072fec0b2e5d42552d73d16.png" width="200">
+
 ## Getting Started
 
 This project is a starting point for a Flutter application with Firebase.
