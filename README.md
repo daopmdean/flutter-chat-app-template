@@ -33,6 +33,25 @@ Now let's get started.
 - Setup in Firebase console
 - Edit Info.plist
 
+```
+<!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
+<!-- Google Sign-In section -->
+<key>CFBundleURLTypes</key>
+<array>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<!-- TODO Replace this value: -->
+			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+			<string>com.googleusercontent.apps.861823949799-vc35cprkp249096uujjn0vvnmcvjppkn</string>
+		</array>
+	</dict>
+</array>
+<!-- End of the Google Sign-In section -->
+```
+
 ## Coding time
 
 // ToDo 1: Implements signInWithGoogle()
